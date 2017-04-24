@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    margin: 0px;
+    padding: 0;
+
+}
+
+body{
+    font: 12px 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    line-height: 1.4em;
+
+}

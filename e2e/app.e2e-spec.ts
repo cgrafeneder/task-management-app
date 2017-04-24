@@ -9,6 +9,7 @@ describe('task-management-app App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
+    //noinspection TypeScriptUnresolvedFunction
     expect(page.getParagraphText()).toEqual('app works!');
   });
 });

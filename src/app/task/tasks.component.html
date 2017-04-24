@@ -1,0 +1,33 @@
+<section class="tasks">
+    <header class="header">
+        <input class="new-task" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTask.title" (keyup.enter)="addTask()">
+    </header>
+    <section class="main" *ngIf="tasks.length > 0">
+        <ul class="task-list">
+            <li *ngFor="let task of tasks" [class.done]="task.done" id="{{task.id}}">
+                <div class="view">
+                    <input class="toggle" type="checkbox" (click)="toggleTaskDone(task)" [checked]="task.done">
+                    <label>{{task.title}}</label>
+                    <button class="destroy" (click)="removeTask(task)"></button>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <footer class="footer" *ngIf="tasks.length > 0">
+        <span class="task-count"><strong>{{tasks.length}}</strong> {{tasks.length == 1 ? 'item' : 'items'}} left</span>
+        <!-- Remove this if you don't implement routing -->
+        <ul class="filters">
+            <li>
+                <a class="selected" href="#/">All</a>
+            </li>
+            <li>
+                <a href="#/active">Active</a>
+            </li>
+            <li>
+                <a href="#/done">Done</a>
+            </li>
+        </ul>
+        <!-- Hidden if no done items are left ↓ -->
+        <button class="clear-done" (click)="clearDoneTasks()">Clear done Tasks</button>
+    </footer>
+</section>
