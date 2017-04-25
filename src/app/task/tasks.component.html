@@ -4,12 +4,18 @@
     </header>
     <section class="main" *ngIf="tasks.length > 0">
         <ul class="task-list">
-            <li *ngFor="let task of tasks" [class.done]="task.done" id="{{task.id}}">
+            <li *ngFor="let task of tasks" [class.editing]="task.editing" [class.done]="task.done" id="{{task.id}}">
                 <div class="view">
                     <input class="toggle" type="checkbox" (click)="toggleTaskDone(task)" [checked]="task.done">
-                    <label>{{task.title}}</label>
+                    <label (dblclick)="task.editing = true">{{task.title}}</label>
                     <button class="destroy" (click)="removeTask(task)"></button>
                 </div>
+                <input class="edit"
+                       #updatedTask
+                       [value]="task.title"
+                       (blur)="updateTask(task, updatedTask.value)"
+                       (keyup.escape)="task.editing = false"
+                       (keyup.enter)="updateTask(task, updatedTask.value)">
             </li>
         </ul>
     </section>

@@ -14,11 +14,18 @@ export class TasksComponent{
 
 
     constructor(private taskDataService: TaskDataService) {
+
     }
 
     addTask() {
         this.taskDataService.addTask(this.newTask);
         this.newTask = new Task();
+    }
+
+    updateTask(task, newTitle) {
+        task.title = newTitle;
+        this.taskDataService.updateTaskById(task.id, task);
+        task.editing = false
     }
 
     toggleTaskDone(task) {
@@ -28,6 +35,7 @@ export class TasksComponent{
     removeTask(task) {
         this.taskDataService.deleteTaskById(task.id);
     }
+
     clearDoneTasks(){
         this.taskDataService.clearDoneTasks();
     }
