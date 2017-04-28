@@ -5,13 +5,11 @@ import { HttpModule } from '@angular/http';
 import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
-import { TasksComponent } from "./task/tasks.component";
 import { NavbarComponent } from "./navbar/navbar.component";
-import { TaskDetailsComponent } from "./task/task-details.component";
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, TasksComponent, TaskDetailsComponent
+    AppComponent, NavbarComponent
   ],
   imports: [
     AlertModule.forRoot(),

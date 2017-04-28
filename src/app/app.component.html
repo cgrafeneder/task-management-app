@@ -4,11 +4,80 @@
     <div class="row">
         <div class="col-md-6">
 
-            <tasks></tasks>
+            <div class="page-header">
+                <h2 class="task-list-title">Task List</h2>
+            </div>
+
+            <form>
+                <div class="form-group row new-task">
+                    <div class="col-xs-11">
+                        <input #new_task class="form-control" placeholder="Add Task ... " type="text" name="title" id="add-task">
+                    </div>
+                    <button class="no-btn add-task" (click)="addTask(new_task.value)"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                </div>
+            </form>
+
+            <ul class="task-list">
+                <li *ngFor="let task of tasks" class="task" [class.done]="task.done" [class.curr-task]="task ">
+                    <div class="view" id="{{task.id}}" >
+                        <input class="toggle-done" type="checkbox" (click)="toggleTaskDone(task)" [checked]="task.done">
+                        <label >{{task.title}}
+                            <span>({{task.id}}) at </span>
+                            <span>{{task.date}}</span>
+                        </label>
+
+                        <button class="no-btn edit-task" (click)="editTask(task.id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <button class="no-btn delete-task" (click)="deleteTask(task.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    </div>
+                </li>
+            </ul>
 
         </div>
-        <div class="col-md-6">
-            <task-details></task-details>
+        <div class="col-md-5 col-md-offset-1">
+            <section class="edit_task" >
+                <div class="page-header">
+                    <h2 class="task-list-title">Edit Task
+                        <button *ngIf="curr_task != null" class="no-btn cancle-editing" (click)="curr_task = null">
+                            <i class="fa fa-times" aria-hidden="true"></i></button>
+                    </h2>
+
+                </div>
+                <div *ngIf="curr_task == null">
+                    <p>Choose a Task to edit</p>
+                </div>
+                <form *ngIf="curr_task != null">
+                    <div class="form-group row">
+                        <label for="task-id" class="col-xs-2 col-form-label">ID</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" disabled="disabled" type="number" name="id" id="task-id" [(ngModel)]="curr_task.id">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="task-title" class="col-xs-2 col-form-label">Title</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" name="title" id="task-title" [(ngModel)]="curr_task.title">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="task-date" class="col-xs-2 col-form-label">Date</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="date" name="date" id="task-date" [(ngModel)]="curr_task.date">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="task-done" class="col-xs-2 col-form-label">Done</label>
+                        <div class="col-xs-10">
+                            <input id="task-done" name="done" type="checkbox" data-on="Active" data-off="Done" [(ngModel)]="curr_task.done">
+                        </div>
+                    </div>
+
+
+                </form>
+            </section>
+
         </div>
     </div>
 
