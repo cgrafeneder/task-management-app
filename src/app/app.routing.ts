@@ -1,9 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
-import {TaskFormComponent} from "./task/task-form.component";
-
+import { TaskListComponent } from "./task/task-list.component";
 
 const APP_ROUTES: Routes = [
-    { path: 'tasks/:task_id', component: TaskFormComponent }
+    { path: ':filter_status', component: TaskListComponent },
+    { path: '**', redirectTo: '/all' }
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);

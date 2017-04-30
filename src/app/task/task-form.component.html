@@ -1,7 +1,7 @@
 <section class="edit_task" >
     <div class="page-header">
         <h2 class="task-list-title">Edit Task
-            <button *ngIf="task != null" class="no-btn cancle-editing" (click)="task = null">
+            <button *ngIf="task != null" class="no-btn cancle-editing" (click)="cancleEditing()">
                 <i class="fa fa-times" aria-hidden="true"></i></button>
         </h2>
 
@@ -25,9 +25,9 @@
         </div>
 
         <div class="form-group row">
-            <label for="task-date" class="col-xs-2 col-form-label">Date</label>
+            <label class="col-xs-2 col-form-label">Date</label>
             <div class="col-xs-10">
-                <input class="form-control" type="date" name="date" id="task-date" [(ngModel)]="task.date">
+                <input class="form-control" type="datetime-local" name="date" id="task-date" [(ngModel)]="task.date">
             </div>
         </div>
 
@@ -41,3 +41,13 @@
 
     </form>
 </section>
+
+
+<script type="text/javascript">
+    $(function() {
+        console.log("here");
+        $(function () {
+            $('#datetimepicker').datetimepicker();
+        });
+    });
+</script>

@@ -3,23 +3,28 @@ import {Task} from './task';
 
 @Injectable()
 export class TasksService {
-
-    // Placeholder for last id so we can simulate
-    // automatic incrementing of id's
-    lastId:number = 4;
-
-    // Placeholder for task's
-    tasks: Task[] = [
-        new Task({id: 1, title: 'Shopping'}),
-        new Task({id: 2, title: 'Working on Project'}),
-        new Task({id: 3, title: 'Go walking'}),
-        new Task({id: 4, title: 'Meet Max'})
-    ];
+    lastId: number; // simulate auto increment
+    tasks: Task[];
 
     constructor() {
+        this.tasks = [
+            new Task({id: 1, title: 'Shopping'}),
+                new Task({id: 2, title: 'Working on Project', date: new Date("May 4, 2017 10:13:00")}),
+                new Task({id: 3, title: 'Go walking', done: true}),
+                new Task({id: 4, title: 'Meet Max', date: new Date("February 4, 2017 10:13:00"), done: true})
+            ];
+        this.lastId = 4;
     }
 
     get(){
+        return this.tasks;
+    }
+
+    getWithFilter(filter_status){
+        if(filter_status === 'completed' || filter_status === 'active'){
+            var isDone = filter_status === 'completed';
+            return this.tasks.filter(task => task.done === isDone);
+        }
         return this.tasks;
     }
 
@@ -49,8 +54,7 @@ export class TasksService {
     deleteById(id: number) {
         this.tasks = this.tasks
             .filter(task => task.id !== id);
-        console.log(this.tasks);
-        return this;
+        return this.tasks;
     }
 
     toggleDone(task: Task){

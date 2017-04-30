@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TasksService} from './tasks.service';
 import {Task} from './task';
 
-import { Router } from '@angular/router'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'task-list',
@@ -11,17 +11,18 @@ import { Router } from '@angular/router'
     providers: [TasksService]
 })
 
-export class TaskListComponent {
+export class TaskListComponent implements OnInit{
 
     public selectedTask: Task;
+    private filterStatus: string;
 
-    constructor(private taskService: TasksService, private router: Router){
+    constructor(private taskService: TasksService, private route: ActivatedRoute){
 
     }
 
     /************ TASK *************/
     get tasks() {
-        return this.taskService.get();
+        return this.taskService.getWithFilter(this.filterStatus);
     }
 
     addTask(title){
@@ -38,6 +39,16 @@ export class TaskListComponent {
 
     toggleTaskDone(task){
         this.taskService.toggleDone(task);
+    }
+
+
+    ngOnInit() {
+        console.log("TaskListComponent loaded");
+
+        this.route.params.subscribe(params => {
+            this.filterStatus = params['filter_status'];
+            this.selectedTask = null;
+        });
     }
 
 }

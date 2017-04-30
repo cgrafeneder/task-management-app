@@ -1,7 +1,7 @@
 export class Task {
     id: number;
     title: string = '';
-    date: string = 'not set';
+    date: Date = null;
     description: string = '';
     done: boolean = false;
 

@@ -1,6 +1,6 @@
 
 
-/* TASKS */
+/* New TASKS */
 
 .new-task input{
     padding: 20px;
@@ -8,25 +8,61 @@
 .new-task input::-webkit-input-placeholder {
     font-weight: 300;
     font-size: 18px;
-    color: #5dc2af;
 }
 
 .new-task input::-moz-placeholder {
     font-weight: 300;
-    color: #5dc2af;
 }
 
 .new-task input::input-placeholder {
     font-weight: 300;
-    color: #5dc2af; /*rgba(175, 47, 47, 0.3);*/
 }
 
+/* FILTER */
+
+.filter-tasks {
+    margin: 25px 0px;
+    padding: 0;
+}
+
+.filter-tasks li {
+    display: inline;
+}
+
+.filter-tasks li a {
+    color: inherit;
+    margin: 3px;
+    padding: 3px 7px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.filter-tasks li a:hover {
+    border-color: #4c9684;
+}
+
+.filter-tasks li a.selected {
+    border-color: #5dc2af;
+}
+
+/* TASK */
 .task {
     background: #fff;
     margin: 0px 0 20px 0;
     position: relative;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
     0 25px 50px 0 rgba(165, 165, 165, 0.1);
+}
+
+.selectedTask{
+    background: rgba(225, 225, 225, 0.58);
+}
+
+.task-date{
+    margin: -10px 0px 10px 60px;
+    font-size: 13px;
+    color: darkgray;
 }
 
 .task-list {
@@ -75,7 +111,12 @@
 }
 
 .task-list li.done label {
-    color: #d9d9d9;
+    color: #a4a4a4;
+    text-decoration: line-through;
+}
+
+.task-list li.done .task-date {
+    color: #a4a4a4;
     text-decoration: line-through;
 }
 
@@ -83,10 +124,9 @@
 /** BUTTON **/
 .new-task .add-task {
     width: 40px;
-    height: 31px;
+    height: 40px;
     font-size: 27px;
     color: #5dc2af;
-    margin-bottom: 11px;
 }
 
 
@@ -99,7 +139,7 @@
     height: 40px;
     margin: auto 0;
     font-size: 18px;
-    color: #cc9a9a;
+    color: #a94442;
     margin-bottom: 11px;
 }
 
@@ -112,6 +152,6 @@
     height: 40px;
     margin: auto 0;
     font-size: 18px;
-    color: #cc9a9a;
+    color: #a94442;
     margin-bottom: 11px;
 }

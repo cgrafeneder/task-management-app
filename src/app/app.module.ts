@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { TaskListComponent } from "./task/task-list.component";
 import { TaskFormComponent } from "./task/task-form.component";
-import {routing} from "./app.routing";
+import { routing } from "./app.routing";
 
 @NgModule({
   declarations: [
