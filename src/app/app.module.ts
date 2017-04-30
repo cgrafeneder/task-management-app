@@ -6,16 +6,20 @@ import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { TaskListComponent } from "./task/task-list.component";
+import { TaskFormComponent } from "./task/task-form.component";
+import {routing} from "./app.routing";
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent
+    AppComponent, NavbarComponent, TaskListComponent, TaskFormComponent
   ],
   imports: [
     AlertModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]

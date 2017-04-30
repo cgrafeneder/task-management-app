@@ -1,0 +1,117 @@
+
+
+/* TASKS */
+
+.new-task input{
+    padding: 20px;
+}
+.new-task input::-webkit-input-placeholder {
+    font-weight: 300;
+    font-size: 18px;
+    color: #5dc2af;
+}
+
+.new-task input::-moz-placeholder {
+    font-weight: 300;
+    color: #5dc2af;
+}
+
+.new-task input::input-placeholder {
+    font-weight: 300;
+    color: #5dc2af; /*rgba(175, 47, 47, 0.3);*/
+}
+
+.task {
+    background: #fff;
+    margin: 0px 0 20px 0;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(165, 165, 165, 0.1);
+}
+
+.task-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.task-list li {
+    position: relative;
+    font-size: 18px;
+    border-bottom: 1px solid #ededed;
+}
+
+.task-list li label {
+    font-weight: 300 !important;
+    word-break: break-all;
+    padding: 18px 110px 13px 15px;
+    margin-left: 45px;
+    display: block;
+    line-height: 1.2;
+}
+
+
+.task-list li .toggle-done {
+    text-align: center;
+    width: 40px;
+    /* auto, since non-WebKit browsers doesn't support input styling */
+    height: auto;
+
+    position: absolute;
+    top: 8px;
+    bottom: 0;
+    margin: auto 4px;
+    border: none; /* Mobile Safari */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.task-list li .toggle-done:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ccc" stroke-width="3"/></svg>');
+}
+
+.task-list li .toggle-done:checked:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+
+.task-list li.done label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+
+
+/** BUTTON **/
+.new-task .add-task {
+    width: 40px;
+    height: 31px;
+    font-size: 27px;
+    color: #5dc2af;
+    margin-bottom: 11px;
+}
+
+
+.task-list li .edit-task {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 18px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+}
+
+.task-list li .delete-task {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 18px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+}

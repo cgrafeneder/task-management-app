@@ -17,7 +17,6 @@ export class TasksService {
     ];
 
     constructor() {
-        console.log("TasksService loaded")
     }
 
     get(){

@@ -1,0 +1,43 @@
+<section class="edit_task" >
+    <div class="page-header">
+        <h2 class="task-list-title">Edit Task
+            <button *ngIf="task != null" class="no-btn cancle-editing" (click)="task = null">
+                <i class="fa fa-times" aria-hidden="true"></i></button>
+        </h2>
+
+    </div>
+    <div *ngIf="task == null">
+        <p>Choose a Task to edit</p>
+    </div>
+    <form *ngIf="task != null">
+        <div class="form-group row">
+            <label for="task-id" class="col-xs-2 col-form-label">ID</label>
+            <div class="col-xs-10">
+                <input class="form-control" disabled="disabled" type="number" name="id" id="task-id" [(ngModel)]="task.id">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="task-title" class="col-xs-2 col-form-label">Title</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="text" name="title" id="task-title" [(ngModel)]="task.title">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="task-date" class="col-xs-2 col-form-label">Date</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="date" name="date" id="task-date" [(ngModel)]="task.date">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="task-done" class="col-xs-2 col-form-label">Done</label>
+            <div class="col-xs-10">
+                <input id="task-done" name="done" type="checkbox" data-on="Active" data-off="Done" [(ngModel)]="task.done">
+            </div>
+        </div>
+
+
+    </form>
+</section>
