@@ -11,3 +11,8 @@
     top: -23px;
     width: 300px;
 }
+
+.navbar-inverse .navbar-nav>li>a.is-active{
+    color: #615f5f;
+    background: white;
+}

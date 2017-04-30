@@ -6,13 +6,14 @@ import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from "./navbar/navbar.component";
+import { IntroComponent } from "./intro/intro.component";
 import { TaskListComponent } from "./task/task-list.component";
 import { TaskFormComponent } from "./task/task-form.component";
 import { routing } from "./app.routing";
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, TaskListComponent, TaskFormComponent
+    AppComponent, NavbarComponent, IntroComponent, TaskListComponent, TaskFormComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -25,4 +26,6 @@ import { routing } from "./app.routing";
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+
+}
