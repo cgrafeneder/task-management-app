@@ -9,9 +9,9 @@ export class TasksService {
     constructor() {
         this.tasks = [
             new Task({id: 1, title: 'Shopping'}),
-                new Task({id: 2, title: 'Working on Project', date: new Date("May 4, 2017 10:13:00")}),
+                new Task({id: 2, title: 'Working on Project', date: new Date("May 4, 2017")}),
                 new Task({id: 3, title: 'Go walking', done: true}),
-                new Task({id: 4, title: 'Meet Max', date: new Date("February 4, 2017 10:13:00"), done: true})
+                new Task({id: 4, title: 'Meet Max', date: new Date("February 4, 2017"), done: true})
             ];
         this.lastId = 4;
     }

@@ -13,12 +13,10 @@ import { ActivatedRoute } from '@angular/router';
 
 export class TaskListComponent implements OnInit{
 
-    public selectedTask: Task;
+    private selectedTask: Task;
     private filterStatus: string;
 
-    constructor(private taskService: TasksService, private route: ActivatedRoute){
-
-    }
+    constructor(private taskService: TasksService, private route: ActivatedRoute){ }
 
     /************ TASK *************/
     get tasks() {
@@ -41,14 +39,10 @@ export class TaskListComponent implements OnInit{
         this.taskService.toggleDone(task);
     }
 
-
     ngOnInit() {
-        console.log("TaskListComponent loaded");
-
         this.route.params.subscribe(params => {
             this.filterStatus = params['filter_status'];
             this.selectedTask = null;
         });
     }
-
 }

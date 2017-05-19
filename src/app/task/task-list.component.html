@@ -2,6 +2,7 @@
     <div class="page-header">
         <h2 class="task-list-title">Task List</h2>
     </div>
+
     <form>
         <div class="form-group row new-task">
             <div class="col-xs-11">
@@ -28,10 +29,10 @@
 
         <li *ngFor="let task of tasks" class="task" [class.selectedTask]="task==selectedTask" [class.done]="task.done" [class.curr-task]="task ">
             <div class="view" id="{{task.id}}" >
-                <input class="toggle-done" type="checkbox" (click)="toggleTaskDone(task)" [checked]="task.done">
+                <input class="toggle-done" type="checkbox" [(ngModel)]="task.done">
                 <label >{{task.title}}</label>
 
-                <p *ngIf="task.date != null" class="task-date">maturing on {{task.date | date:'medium'}}</p>
+                <p *ngIf="task.date != null" class="task-date">maturing on {{task.date | date:'mediumDate'}}</p>
 
                 <button *ngIf="!task.done" (click)="editTask(task)" class="no-btn edit-task"  ><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <button class="no-btn delete-task" (click)="deleteTask(task.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
@@ -39,9 +40,9 @@
         </li>
     </ul>
 </div>
+
 <div class="col-md-5 col-md-offset-1">
 
     <task-form [task]="selectedTask"></task-form>
-
 
 </div>
